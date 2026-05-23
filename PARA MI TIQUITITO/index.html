@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para mi amor 💜</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  
+
+  background:
+  linear-gradient(135deg,#5c3585,#8d63c7);
+
+  min-height:100vh;
+
+  overflow:hidden;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+}
+
+/* INTRO */
+
+#introAnimation{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+  linear-gradient(135deg,#5c3585,#8d63c7);
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:99999;
+
+  animation:introFade 4s forwards;
+}
+
+.introTitle{
+
+  font-family:'Great Vibes',cursive;
+
+  font-size:110px;
+
+  color:white;
+
+  text-shadow:
+  0 0 20px rgba(255,255,255,0.8),
+  0 0 60px rgba(255,192,255,0.9);
+
+  animation:introZoom 4s ease;
+}
+
+@keyframes introZoom{
+
+  0%{
+    opacity:0;
+    transform:scale(0.4);
+  }
+
+  50%{
+    opacity:1;
+    transform:scale(1.15);
+  }
+
+  100%{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+@keyframes introFade{
+
+  0%{
+    opacity:1;
+  }
+
+  85%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0;
+    visibility:hidden;
+  }
+}
+
+/* HEARTS */
+
+.heart{
+
+  position:fixed;
+
+  bottom:-20px;
+
+  color:rgba(255,255,255,0.6);
+
+  font-size:25px;
+
+  animation:floatUp linear infinite;
+
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+
+  from{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  to{
+    transform:translateY(-120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* CONTAINER */
+
+.container{
+
+  width:100%;
+  max-width:1100px;
+
+  padding:40px;
+
+  text-align:center;
+
+  border-radius:35px;
+
+  background:
+  linear-gradient(
+  135deg,
+  rgba(255,255,255,0.12),
+  rgba(255,255,255,0.06));
+
+  border:
+  2px solid rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+  0 0 35px rgba(255,255,255,0.1);
+
+  animation:introAppear 2s ease;
+}
+
+@keyframes introAppear{
+
+  from{
+    opacity:0;
+    transform:
+    translateY(40px)
+    scale(0.95);
+  }
+
+  to{
+    opacity:1;
+    transform:
+    translateY(0)
+    scale(1);
+  }
+}
+
+/* TITLES */
+
+h1{
+
+  font-size:65px;
+
+  margin-bottom:20px;
+
+  color:white;
+
+  font-family:'Great Vibes',cursive;
+
+  text-shadow:
+  0 0 18px rgba(255,255,255,0.7);
+}
+
+/* LETTER */
+
+.letter{
+
+  color:white;
+
+  font-size:18px;
+
+  line-height:1.9;
+
+  margin-bottom:30px;
+
+  white-space:pre-line;
+}
+
+/* BUTTONS */
+
+button{
+
+  background:#ff4f87;
+
+  color:white;
+
+  border:none;
+
+  padding:15px 32px;
+
+  border-radius:50px;
+
+  font-size:18px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+button:hover{
+
+  transform:scale(1.05);
+
+  background:#ff2f72;
+}
+
+#musicBtn{
+
+  position:fixed;
+
+  top:20px;
+  right:20px;
+
+  z-index:9999;
+}
+
+/* BOTÓN VOLVER */
+
+.backBtn{
+
+  position:fixed;
+
+  top:20px;
+
+  left:20px;
+
+  z-index:99999;
+
+  background:
+  rgba(255,255,255,0.15);
+
+  color:white;
+
+  border:
+  2px solid rgba(255,255,255,0.25);
+
+  backdrop-filter:blur(10px);
+
+  padding:12px 24px;
+
+  border-radius:40px;
+
+  font-size:17px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  display:none;
+
+  box-shadow:
+  0 0 18px rgba(255,255,255,0.15);
+}
+
+.backBtn:hover{
+
+  transform:scale(1.05);
+
+  background:
+  rgba(255,255,255,0.25);
+}
+
+/* GAME */
+
+#game{
+  display:none;
+  margin-top:30px;
+}
+
+.game-area{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+  gap:40px;
+
+  flex-wrap:wrap;
+}
+
+/* PUZZLE */
+
+.puzzle{
+
+  width:370px;
+  height:370px;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(5,1fr);
+
+  grid-template-rows:
+  repeat(5,1fr);
+
+  gap:1px;
+
+  padding:4px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border-radius:4px;
+
+  border:
+  4px solid rgba(255,255,255,0.2);
+
+  box-shadow:
+  0 0 25px rgba(255,255,255,0.12);
+}
+
+.piece{
+
+  width:70px;
+  height:70px;
+
+  background-image:url('foto.jpg');
+
+  background-size:
+  370px 370px;
+
+  border-radius:2px;
+
+  cursor:grab;
+}
+
+/* POLAROID */
+
+.polaroid{
+
+  width:250px;
+
+  background:white;
+
+  padding:15px 15px 45px;
+
+  border-radius:20px;
+
+  box-shadow:
+  0 0 30px rgba(255,255,255,0.2);
+
+  transition:1.5s ease;
+}
+
+.polaroid img{
+
+  width:100%;
+
+  border-radius:14px;
+}
+
+.finalLove{
+
+  margin-top:18px;
+
+  text-align:center;
+
+  font-family:'Great Vibes',cursive;
+
+  font-size:62px;
+
+  color:#7b2cff;
+
+  text-shadow:
+  0 0 12px rgba(162,93,255,0.45);
+
+  animation:loveGlow 3s ease-in-out infinite;
+}
+
+@keyframes loveGlow{
+
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.05);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
+/* FINAL OVERLAY */
+
+#finalOverlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+  linear-gradient(
+  135deg,
+  rgba(48,15,83,0.96),
+  rgba(96,53,146,0.96));
+
+  opacity:0;
+
+  transition:1.5s;
+
+  z-index:2000;
+
+  pointer-events:none;
+}
+
+#finalOverlay.show{
+  opacity:1;
+}
+
+/* FINAL POLAROID */
+
+.polaroid.final{
+
+  position:fixed;
+
+  top:33%;
+
+  left:50%;
+
+  width:430px;
+
+  transform:
+  translate(-50%,-50%)
+  scale(0.5);
+
+  z-index:5000;
+
+  animation:finalZoom 1.8s ease forwards;
+
+  box-shadow:
+  0 0 60px rgba(255,255,255,0.3),
+  0 0 120px rgba(255,192,255,0.4);
+}
+
+@keyframes finalZoom{
+
+  0%{
+    opacity:0;
+    transform:
+    translate(-50%,-50%)
+    scale(0.5);
+  }
+
+  60%{
+    opacity:1;
+    transform:
+    translate(-50%,-50%)
+    scale(1.08);
+  }
+
+  100%{
+    opacity:1;
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+  }
+}
+
+/* FINAL MESSAGE */
+
+#finalMessage{
+
+  display:none;
+
+  position:fixed;
+
+  left:50%;
+
+  top:71%;
+
+  transform:
+  translate(-50%,-50%);
+
+  width:88%;
+
+  text-align:center;
+
+  z-index:6000;
+}
+
+#finalMessage h2{
+
+  font-size:58px;
+
+  color:white;
+
+  margin-bottom:18px;
+
+  text-shadow:
+  0 0 20px rgba(255,255,255,0.8);
+}
+
+#finalMessage p{
+
+  font-size:31px;
+
+  color:white;
+
+  line-height:1.6;
+
+  text-shadow:
+  0 0 16px rgba(255,255,255,0.6);
+}
+
+.lineDecor{
+
+  font-size:28px;
+
+  margin-bottom:20px;
+
+  letter-spacing:10px;
+
+  color:white;
+}
+
+/* BOTÓN FINAL */
+
+#nextPageBtn{
+
+  display:none;
+
+  position:fixed;
+
+  left:50%;
+
+  top:93%;
+
+  transform:
+  translate(-50%,-50%);
+
+  z-index:7000;
+
+  background:
+  linear-gradient(
+  135deg,
+  #ff4f87,
+  #a855f7);
+
+  color:white;
+
+  border:none;
+
+  padding:18px 40px;
+
+  border-radius:60px;
+
+  font-size:20px;
+
+  cursor:pointer;
+}
+
+/* GALERÍA */
+
+#galleryPage{
+
+  display:none;
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+  linear-gradient(
+  135deg,
+  #4c257a,
+  #8b5cc7);
+
+  z-index:9000;
+
+  overflow:hidden;
+}
+
+.galleryTitle{
+
+  margin-top:45px;
+
+  text-align:center;
+
+  color:white;
+
+  font-size:75px;
+
+  font-family:'Great Vibes',cursive;
+}
+
+.carousel{
+
+  position:relative;
+
+  width:720px;
+
+  height:450px;
+
+  margin:35px auto;
+
+  overflow:hidden;
+
+  border-radius:30px;
+}
+
+.carouselImg{
+
+  position:absolute;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:0;
+
+  transition:1s;
+}
+
+.carouselImg.active{
+  opacity:1;
+}
+
+.galleryNote{
+
+  width:82%;
+
+  margin:0 auto;
+
+  text-align:center;
+
+  color:white;
+
+  font-size:30px;
+
+  line-height:1.9;
+
+  font-family:'Great Vibes',cursive;
+}
+
+.galleryNote strong{
+
+  display:block;
+
+  margin-top:22px;
+
+  font-size:56px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="introAnimation">
+
+<h2 class="introTitle">
+Para mi amor 💜
+</h2>
+
+</div>
+
+<button id="musicBtn"
+onclick="toggleMusic()">
+
+🎵 Música
+
+</button>
+
+<button class="backBtn"
+id="backBtn"
+onclick="goBack()">
+
+⬅ Volver
+
+</button>
+
+<audio id="music" loop>
+
+<source src="musica.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<div class="heart"
+style="left:5%;animation-duration:8s;">💜</div>
+
+<div class="heart"
+style="left:20%;animation-duration:12s;">💖</div>
+
+<div class="heart"
+style="left:40%;animation-duration:10s;">💕</div>
+
+<div class="heart"
+style="left:60%;animation-duration:14s;">💜</div>
+
+<div class="heart"
+style="left:80%;animation-duration:11s;">✨</div>
+
+<div id="finalOverlay"></div>
+
+<div class="container">
+
+<div id="intro">
+
+<h1>Para mi amor 💜</h1>
+
+<div class="letter">
+
+Hola corazoncito 💜
+
+sé que últimamente has estado
+desanimado, estresado y abrumado...
+
+por eso quise hacer este regalito virtual
+para ti y poder distraerte un minutito✨
+
+te amo infinitamente🫶💫
+pd: ponle play a la musica jiji🎶🎶
+
+</div>
+
+<button onclick="startGame()">
+Comenzar ✨
+</button>
+
+</div>
+
+<div id="game">
+
+<h1>
+Arma nuestro recuerdo ✨
+</h1>
+
+<div class="game-area">
+
+<div class="puzzle"
+id="puzzle"></div>
+
+<div class="polaroid"
+id="polaroid">
+
+<img src="foto.jpg"
+alt="foto">
+
+<p class="finalLove">
+Te amo❤️‍🩹
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="finalMessage">
+
+<h2>
+Lo lograste mi vidaaaaa💖🥳
+</h2>
+
+<div class="lineDecor">
+💜 ✨ 💜
+</div>
+
+<p>
+Cada pieza del puzzle encajaba perfecto,<br>
+igual como lo hacemos nosotros🤭💖
+</p>
+
+</div>
+
+<button id="nextPageBtn"
+onclick="showGallery()">
+
+FINAL💜
+
+</button>
+
+<div id="galleryPage">
+
+<h1 class="galleryTitle">
+¡Mi vida!
+</h1>
+
+<div class="carousel">
+
+<img src="foto1.jpg"
+class="carouselImg active">
+
+<img src="foto2.jpg"
+class="carouselImg">
+
+<img src="foto3.jpg"
+class="carouselImg">
+
+<img src="foto4.jpg"
+class="carouselImg">
+
+<img src="foto5.jpg"
+class="carouselImg">
+
+<img src="foto6.jpg"
+class="carouselImg">
+
+</div>
+
+<div class="galleryNote">
+
+Espero que aunque haya sido por unos segundos
+te hayas divertido y hayas disfrutado armando
+un pequeño pedacito de toda nuestra bonita historia 🥰💜
+
+<strong>
+¡¡¡TE ADORO!!!💜
+</strong>
+
+</div>
+
+</div>
+
+<script>
+
+window.addEventListener('load',()=>{
+
+setTimeout(()=>{
+
+document.getElementById(
+'introAnimation'
+).style.display='none';
+
+},4000);
+
+});
+
+const puzzle=
+document.getElementById('puzzle');
+
+const size=5;
+
+let pieces=[];
+
+let dragged=null;
+
+let currentPage = "intro";
+
+const music=
+document.getElementById('music');
+
+function toggleMusic(){
+
+if(music.paused){
+
+music.play();
+
+}else{
+
+music.pause();
+}
+}
+
+function startGame(){
+
+music.volume=0.5;
+
+music.play();
+
+document.getElementById('intro')
+.style.display='none';
+
+document.getElementById('game')
+.style.display='block';
+
+document.getElementById(
+'backBtn'
+).style.display='block';
+
+currentPage = "game";
+
+createPuzzle();
+}
+
+function createPuzzle(){
+
+pieces=[];
+
+puzzle.innerHTML='';
+
+for(let i=0;i<size*size;i++){
+
+const piece=
+document.createElement('div');
+
+piece.classList.add('piece');
+
+piece.draggable=true;
+
+piece.dataset.correct=i;
+
+const row=
+Math.floor(i/size);
+
+const col=i%size;
+
+piece.style.backgroundPosition=
+`${-col*74}px ${-row*74}px`;
+
+pieces.push(piece);
+}
+
+shuffle(pieces);
+
+pieces.forEach(piece=>{
+
+puzzle.appendChild(piece);
+
+piece.addEventListener(
+'dragstart',
+dragStart);
+
+piece.addEventListener(
+'dragover',
+dragOver);
+
+piece.addEventListener(
+'drop',
+drop);
+});
+}
+
+function shuffle(array){
+
+for(let i=array.length-1;i>0;i--){
+
+const j=
+Math.floor(
+Math.random()*(i+1));
+
+[array[i],array[j]]=
+[array[j],array[i]];
+}
+}
+
+function dragStart(){
+
+dragged=this;
+}
+
+function dragOver(e){
+
+e.preventDefault();
+}
+
+function drop(){
+
+if(!dragged||
+dragged===this)return;
+
+const draggedHTML=
+dragged.outerHTML;
+
+const targetHTML=
+this.outerHTML;
+
+dragged.outerHTML=
+targetHTML;
+
+this.outerHTML=
+draggedHTML;
+
+recreateEvents();
+
+checkCorrectPieces();
+
+checkWin();
+}
+
+function recreateEvents(){
+
+const allPieces=
+document.querySelectorAll('.piece');
+
+allPieces.forEach(piece=>{
+
+piece.addEventListener(
+'dragstart',
+dragStart);
+
+piece.addEventListener(
+'dragover',
+dragOver);
+
+piece.addEventListener(
+'drop',
+drop);
+});
+}
+
+function checkCorrectPieces(){
+
+const currentPieces=
+[...puzzle.children];
+
+currentPieces.forEach(
+(piece,index)=>{
+
+if(Number(piece.dataset.correct)
+===index){
+
+piece.draggable=false;
+
+piece.style.border=
+'3px solid white';
+
+piece.style.boxShadow=
+'0 0 20px rgba(255,255,255,0.9)';
+}
+});
+}
+
+function checkWin(){
+
+const currentPieces=
+[...puzzle.children];
+
+const correct=
+currentPieces.every(
+(piece,index)=>{
+
+return Number(
+piece.dataset.correct)
+===index;
+
+});
+
+if(correct){
+
+currentPage = "final";
+
+const polaroid=
+document.getElementById(
+'polaroid');
+
+const overlay=
+document.getElementById(
+'finalOverlay');
+
+const container=
+document.querySelector(
+'.container');
+
+overlay.classList.add(
+'show');
+
+container.style.opacity='0';
+
+setTimeout(()=>{
+
+container.style.display=
+'none';
+
+polaroid.classList.add(
+'final');
+
+document.body.appendChild(
+polaroid);
+
+document.getElementById(
+'finalMessage')
+.style.display='block';
+
+document.getElementById(
+'nextPageBtn')
+.style.display='block';
+
+},1200);
+}
+}
+
+function showGallery(){
+
+document.getElementById(
+'galleryPage'
+).style.display='block';
+
+currentPage = "gallery";
+
+startCarousel();
+}
+
+let currentSlide=0;
+
+function startCarousel(){
+
+const slides=
+document.querySelectorAll(
+'.carouselImg'
+);
+
+setInterval(()=>{
+
+slides[currentSlide]
+.classList.remove('active');
+
+currentSlide=
+(currentSlide+1)
+%slides.length;
+
+slides[currentSlide]
+.classList.add('active');
+
+},3000);
+}
+
+function goBack(){
+
+if(currentPage === "gallery"){
+
+document.getElementById(
+'galleryPage'
+).style.display='none';
+
+currentPage = "final";
+}
+
+else if(currentPage === "game"){
+
+document.getElementById(
+'game'
+).style.display='none';
+
+document.getElementById(
+'intro'
+).style.display='block';
+
+document.getElementById(
+'backBtn'
+).style.display='none';
+
+currentPage = "intro";
+}
+
+else if(currentPage === "final"){
+
+location.reload();
+}
+}
+
+</script>
+
+</body>
+</html>
